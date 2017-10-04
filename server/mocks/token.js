@@ -6,7 +6,7 @@ module.exports = function(app) {
   let tokenRouter = express.Router();
 
    tokenRouter.post('/', function(req, res) {
-      res.send({ access_Token: "token" });
+      res.send({ access_token: "token" });
   });
 
   // The POST and PUT call will not contain a request body
