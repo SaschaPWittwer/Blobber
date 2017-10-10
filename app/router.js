@@ -9,6 +9,11 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login');
   this.route('account');
+  this.route('posts', function() {
+    this.route('hot');
+    this.route('search', {path: "search/:filter"});
+  });
+  this.route('post', {path: "post/:id"});
 });
 
 export default Router;

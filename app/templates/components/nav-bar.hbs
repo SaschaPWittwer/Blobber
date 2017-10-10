@@ -1,17 +1,23 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Blobber</a>
+        {{#link-to "index"}}
+            <a class="navbar-brand" href="#">Blobber</a>
+        {{/link-to}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-            {{#link-to "index" tagName="li"}}
-                <a class="nav-link" href="#">Posts</a>
+            {{#link-to "posts" tagName="li"}}
+                <a class="nav-link" href="#">Recent</a>
+            {{/link-to}}
+            {{#link-to "posts.hot" tagName="li"}}
+                <a class="nav-link" href="#">Hot</a>
             {{/link-to}}
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0" {{action "search" on="submit"}}>
+                {{!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> --}}
+                {{input value=searchFilter class="form-control mr-sm-2" type="text" placeholder="Search"}}
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>

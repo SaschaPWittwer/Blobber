@@ -1,15 +1,15 @@
 @import "ember-cli-bootstrap-4/bootstrap";
 
-.login {
-    width: 30rem;
-    text-align: center;
-}
-
 .content {
     margin-top: 4rem;
 }
 
 .post {
-    width: 40rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
     margin-bottom: 1rem;
+
+    .content {
+
+    }
 }

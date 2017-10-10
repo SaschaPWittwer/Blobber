@@ -12,7 +12,8 @@ module.exports = function(app) {
           creator: "Sascha",
           date: "01.08.2000",
           content: "Blog post 1",
-          title: "Test 1"
+          title: "Test 1",
+          hot: true
         },{
           id: 2,
           creator: "Joris",
@@ -24,7 +25,8 @@ module.exports = function(app) {
           creator: "Yves",
           date: "01.08.2000",
           content: "Blog post 3",
-          title: "Test 3"
+          title: "Test 3",
+          hot: true
         }]
     });
   });
