@@ -32,7 +32,13 @@ module.exports = function(app) {
   });
 
   postsRouter.post('/', function(req, res) {
-    res.status(201).end();
+    res.status(201).send({
+      'posts': {
+        id: 5,
+        title: req.params.title,
+        content: req.params.content
+      }
+    })
   });
 
   postsRouter.get('/:id', function(req, res) {
