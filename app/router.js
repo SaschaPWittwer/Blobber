@@ -13,7 +13,10 @@ Router.map(function() {
     this.route('hot');
     this.route('search', {path: "search/:filter"});
   });
-  this.route('post', {path: "post/:id"});
+  this.route('post', function(){
+      this.route('new');
+      this.route('view', { path: 'view/:id'});
+  });
 });
 
 export default Router;

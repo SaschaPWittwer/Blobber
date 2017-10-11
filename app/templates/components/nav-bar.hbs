@@ -14,6 +14,9 @@
             {{#link-to "posts.hot" tagName="li"}}
                 <a class="nav-link" href="#">Hot</a>
             {{/link-to}}
+            {{#link-to "post.new" tagName="li"}}
+                <a class="nav-link" href="#">New post</a>
+            {{/link-to}}
             </ul>
             <form class="form-inline my-2 my-lg-0" {{action "search" on="submit"}}>
                 {{!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> --}}

@@ -1,22 +1,14 @@
 <div class="card post">
-    <div class="card-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col text-left">
-                    <h4>{{post.title}}</h4>
-                </div>
-                <div class="col-1 text-right">
-                    {{#link-to "post" post tagName="button" type="button" class="btn btn-outline-secondary btn-sm"}}
-                        Show
-                    {{/link-to}}            
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="card-body text-left">
+        {{!-- <h4 class="card-title">{{post.title}}</h4> --}}
+        {{#link-to "post.view" post tagName="h4" class="card-title"}}
+            {{post.title}}
+        {{/link-to}}
         <p class="card-text">{{post.content}}</p>
-    </div>
-    <div class="card-footer text-muted">
-        {{post.creator}} - {{post.date}}
+        <footer class="blockqoute-footer">
+            <small class="text-muted">
+                {{post.creator}} - {{post.date}}
+            </small>
+        </footer>
     </div>
 </div>
