@@ -1,6 +1,5 @@
 <div class="card post">
     <div class="card-body text-left">
-        {{!-- <h4 class="card-title">{{post.title}}</h4> --}}
         {{#link-to "post.view" post tagName="h4" class="card-title"}}
             {{post.title}}
         {{/link-to}}
@@ -9,6 +8,7 @@
             <small class="text-muted">
                 {{post.creator}} - {{post.date}}
             </small>
+            {{!-- Todo batches for up- and downvotes --}}
         </footer>
     </div>
 </div>

@@ -5,10 +5,10 @@ export default Ember.Component.extend({
     searchFilter: '',
     actions: {
         search() {
-            let filter = this.get("searchFilter");
+            let sFilter = this.get("searchFilter");
 
-            if (new String(filter).length > 0){
-                this.get("router").transitionTo("/posts/search/" + filter);
+            if (new String(sFilter).length > 0){
+                this.get("router").transitionTo("/posts?filter=" + sFilter);
             }
         }
     }

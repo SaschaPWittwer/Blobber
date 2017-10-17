@@ -4,5 +4,7 @@ export default DS.Model.extend({
     creator: DS.attr("string"),
     date: DS.attr(),
     content: DS.attr("string"),
-    title: DS.attr("string")
+    title: DS.attr("string"),
+    upvote: DS.attr(),
+    downvote: DS.attr()
 });
