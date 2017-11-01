@@ -1,4 +1,4 @@
-<div class="card post">
+<div class="card border-light mb-2">
     <div class="card-body text-left">
         {{#link-to "post.view" post tagName="h4" class="card-title"}}
             {{post.title}}
@@ -12,3 +12,9 @@
         </footer>
     </div>
 </div>
+{{#if isDetail}}
+    {{#each post.comments as |comment|}}
+        <h1>{{comment.text}}</h1>
+    {{/each}}
+    <h2>test</h2>
+{{/if}}

@@ -5,6 +5,5 @@ export default DS.Model.extend({
     date: DS.attr(),
     content: DS.attr("string"),
     title: DS.attr("string"),
-    upvote: DS.attr(),
-    downvote: DS.attr()
+    comments: DS.hasMany("comment")
 });

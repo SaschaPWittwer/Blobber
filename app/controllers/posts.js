@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
     filter: null,
 
     filteredPosts: Ember.computed('filter', 'model', function(){
-        let filter = this.get("filter");
+        // let filter = this.get("filter");
         let posts = this.get("model");
 
         return posts;

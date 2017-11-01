@@ -12,8 +12,7 @@ module.exports = function(app) {
           creator: "Sascha",
           date: "01.08.2000",
           content: "Blog post 1",
-          title: "Test 1",
-          hot: true
+          title: "Test 1"
         },{
           id: 2,
           creator: "Joris",
