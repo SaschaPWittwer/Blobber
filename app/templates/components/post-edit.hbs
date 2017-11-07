@@ -5,7 +5,7 @@
     </div>
     <div class="form-group">
         <label for="postContent">Content</label>
-        {{textarea value=content class="form-control" id="postContent" rows="12"}}
+        {{simple-mde value=content change=(action (mut content))}}
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
 </form>

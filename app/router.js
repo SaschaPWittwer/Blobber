@@ -7,7 +7,6 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('account');
   this.route('posts');
   this.route('post', function(){
       this.route('new');

@@ -10,6 +10,8 @@ export default Ember.Component.extend({
             let title = this.get("title");
             let content = this.get("content");
 
+            alert(content);
+
             let newPost = this.get("store").createRecord("blogpost", {
                 title: title,
                 content: content

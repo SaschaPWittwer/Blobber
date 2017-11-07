@@ -3,7 +3,9 @@
         {{#link-to "post.view" post tagName="h4" class="card-title"}}
             {{post.title}}
         {{/link-to}}
-        <p class="card-text">{{post.content}}</p>
+        <p class="card-text">
+            {{simple-mde-preview post.content}}
+        </p>
         <footer class="blockqoute-footer">
             <small class="text-muted">
                 {{post.creator}} - {{post.date}}
