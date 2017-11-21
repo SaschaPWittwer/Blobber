@@ -5,9 +5,16 @@ export default Ember.Controller.extend({
     filter: null,
 
     filteredPosts: Ember.computed('filter', 'model', function(){
-        // let filter = this.get("filter");
+        let filter = this.get("filter").toLowerCase();
         let posts = this.get("model");
 
-        return posts;
+        if (filter) {
+            return this.get("store").findAll("blogpost").then(posts => {
+                posts.filterBy("content", filter);
+             });
+        }
+        else {
+            return posts;
+        }
     })
 });

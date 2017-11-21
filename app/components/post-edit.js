@@ -10,11 +10,10 @@ export default Ember.Component.extend({
             let title = this.get("title");
             let content = this.get("content");
 
-            alert(content);
-
             let newPost = this.get("store").createRecord("blogpost", {
                 title: title,
-                content: content
+                content: content,
+                user_id: 1
             });
 
             let self = this;

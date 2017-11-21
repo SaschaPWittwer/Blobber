@@ -1,10 +1,10 @@
 <div class="container-fluid">
-    {{nav-bar}}
+    {{nav-bar authorized=isAuthorized}}
 </div>
 <div class="container-fluid text-center content">
     <div class="row">
         <div class="col-2 text-left d-none d-lg-block d-xl-block">
-            <h3 class="font-weight-light">Hot posts</h3>
+            <h3 class="font-weight-light">{{t "hotPosts"}}</h3>
             <ul class="nav flex-column">
                 {{#each model as |hotPost|}}
                     <li class="nav-item">
