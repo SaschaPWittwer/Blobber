@@ -8,6 +8,7 @@ export default {
   "search": "Suchen",
   "footerText": "Bloober von Joris Baiutti und Sascha Wittwer",
   "login": "Login",
+  "logout": "Logout",
   "username": "Benutzername",
   "password": "Passwort",
   "close": "Schliessen",

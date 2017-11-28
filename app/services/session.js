@@ -1,34 +1,36 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Service.extend({
-    username: "",
-    authorized: false,
-    
-    init() {
-        this._super(...arguments);
-        this.set("username", "");
-        this.set("authorized", false);
-    },
+  username: "",
+  isAuthorized: Ember.computed("token", function() {
+    return this.get("token") !== null && this.get("token").length > 0;
+  }),
+  token: null,
 
-    login(username, password, success, fail) {
-        let self = this;
-        Ember.$.getJSON("http://blobber.azurewebsites.net/api/users", {
-            username: username,
-            password: password
-        }).then((data) => {
-            Ember.$.each(data.user, (item) => {
-                if (item.username === username && item.password === password){
-                    self.set("username", item.username);
-                    self.set("authorized", true);
-                    success(item);
-                }
-            });
-        }).fail(() =>{
-            fail();
-        });
-    },
+  init() {
+    this._super(...arguments);
+    // For observing reasons
+    this.get("isAuthorized");
+    this.get("token");
+  },
+  login(username, password, success, fail) {
+    let self = this;
 
-    logout() {
-        this.set("username", "");
-    },
+    Ember.$.post(
+      "https://blobber.azurewebsites.net/api/token",
+      {
+        user: username,
+        password: password
+      },
+      payload => {
+        self.set("token", payload.token);
+        success();
+      }
+    ).fail(() => {
+      fail();
+    });
+  },
+  logout() {
+    this.set("token", null);
+  }
 });

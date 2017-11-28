@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    session: Ember.inject.service('session'),
     router: Ember.inject.service(),
     i18n: Ember.inject.service(),
     searchFilter: '',
@@ -14,6 +15,9 @@ export default Ember.Component.extend({
         },
         setLanguage(language) {
             this.set('i18n.locale', language);
+        },
+        logout() {
+            this.get("session").logout();
         }
     }
 });

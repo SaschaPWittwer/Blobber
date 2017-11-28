@@ -9,19 +9,33 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            {{#if session.isAuthorized}}
+                <li>
+                    <a class="nav-link" href="#" {{action "logout"}}>{{t "logout"}}</a>
+                </li>
+            {{else}}
+                {{#link-to "login" tagName="li"}}
+                    <a class="nav-link" href="#">{{t "login"}}</a>
+                {{/link-to}}
+            {{/if}}
+            
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     {{t "language"}}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#" {{action "setLanguage" "de"}} >{{t "german"}}</a>
-                    <a class="dropdown-item" href="#" {{action "setLanguage" "en"}} >{{t "english"}}</a>
-                </div>  
+                    <a class="dropdown-item" href="#" {{action "setLanguage" "de"}}>{{t "german"}}</a>
+                    <a class="dropdown-item" href="#" {{action "setLanguage" "en"}}>{{t "english"}}</a>
+                </div>
             </li>
-            {{#if authorized}} {{#link-to "post.new" tagName="li"}}
-                <a class="nav-link" href="#">{{t "newPost"}}</a>
-            {{/link-to}} {{/if}}
+
+            {{#if session.isAuthorized}}
+                {{#link-to "post.new" tagName="li"}}
+                    <a class="nav-link" href="#">{{t "newPost"}}</a>
+                {{/link-to}}
+            {{/if}}
         </ul>
         <form class="form-inline my-2 my-lg-0" {{action "search" on="submit" }}>
             {{input value=searchFilter class="form-control mr-sm-2" type="text" placeholder=(t "searchPlaceholder")}}

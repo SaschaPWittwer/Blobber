@@ -22,7 +22,9 @@ export default Ember.Component.extend({
                 self.get("router").transitionTo("post.view", post);
             }
 
-            newPost.save().then(transitionToPost);
+            newPost.save().then(transitionToPost).fail(() => {
+                alert("fail");
+            });
         }
     }
 });
