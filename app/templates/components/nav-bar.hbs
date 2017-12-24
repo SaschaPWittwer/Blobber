@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     {{#link-to "index"}}
-    <a class="navbar-brand" href="#">Blobber</a>
+        <a class="navbar-brand" href="#">Blobber</a>
     {{/link-to}}
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -10,30 +10,30 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             {{#if session.isAuthorized}}
+                {{#link-to "post.new" tagName="li"}}
+                    <a class="nav-link" href="#">{{t "newPost"}}</a>
+                {{/link-to}}
+            {{/if}}
+        </ul>
+        <ul class="navbar-nav ml-auto mr-2">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                    {{!-- {{t "language"}} --}}
+                    {{i18n.locale}}
+                </a>
+                <div class="dropdown-menu">
+                    {{#each i18n.locales as |locale|}}
+                        <a class="dropdown-item" href="#" {{action "setLanguage" locale}}>{{locale}}</a>
+                    {{/each}}
+                </div>
+            </li>
+            {{#if session.isAuthorized}}
                 <li>
                     <a class="nav-link" href="#" {{action "logout"}}>{{t "logout"}}</a>
                 </li>
             {{else}}
                 {{#link-to "login" tagName="li"}}
                     <a class="nav-link" href="#">{{t "login"}}</a>
-                {{/link-to}}
-            {{/if}}
-            
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    {{t "language"}}
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#" {{action "setLanguage" "de"}}>{{t "german"}}</a>
-                    <a class="dropdown-item" href="#" {{action "setLanguage" "en"}}>{{t "english"}}</a>
-                </div>
-            </li>
-
-            {{#if session.isAuthorized}}
-                {{#link-to "post.new" tagName="li"}}
-                    <a class="nav-link" href="#">{{t "newPost"}}</a>
                 {{/link-to}}
             {{/if}}
         </ul>

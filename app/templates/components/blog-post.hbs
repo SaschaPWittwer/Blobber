@@ -6,11 +6,15 @@
         <p class="card-text">
             {{simple-mde-preview post.content}}
         </p>
-        <footer class="blockqoute-footer">
-            <small class="text-muted">
+        {{!-- Use flexbox for aligning ... --}}
+        <footer class="blockqoute-footer justify-content-between">
+            <small class="text-muted inline">
                 {{post.creator}} - {{post.date}}
             </small>
-            {{!-- Todo batches for up- and downvotes --}}
+            <div class="w-25 d-inline-block">
+                <span class="badge badge-success">Like</span>
+                <span class="badge badge-danger">Unlike</span>
+            </div>
         </footer>
     </div>
 </div>
