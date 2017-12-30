@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">{{t "login"}}</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" {{action "close"}}>
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -20,6 +20,9 @@
                 </form>
             </div>
             <div class="modal-footer">
+                {{#link-to "register"}}
+                    {{t "register"}}
+                {{/link-to}}
                 <button type="button" class="btn btn-primary" {{action "doLogin"}}>Go!</button>
                 <button type="button" class="btn btn-secondary" {{action "close"}}>{{t "close"}}</button>
             </div>

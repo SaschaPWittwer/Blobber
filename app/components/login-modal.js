@@ -20,11 +20,14 @@ export default Ember.Component.extend({
             });
         },
         close() {
-            Ember.$("#loginModal").modal('hide');
+            // Ember.$("#loginModal").modal('hide');
             this.get("router").transitionTo("index");
         }
     },
     didRender() {
         Ember.$("#loginModal").modal('show');
+    },
+    willDestroyElement() {
+        Ember.$("#loginModal").modal('hide');
     }
 });

@@ -15,5 +15,14 @@ export default {
   "title": "Title",
   "content": "Content",
   "save": "Save",
-  "searchPlaceholder": "Enter filter here..."
+  "searchPlaceholder": "Enter filter here...",
+  "register": "Register",
+  "mail": "E-Mail",
+  "mailrepeat": "Repeat E-Mail",
+  "firstname": "Firtsname",
+  "lastname": "Lastname",
+  "passwordrepeat": "Repeat Passwort",
+  "mailsDoNotMatch": "E-Mails do not match!",
+  "passwordsDoNotMatch": "Passwords do not match!",
+  "createUser": "Create new user"
 };
