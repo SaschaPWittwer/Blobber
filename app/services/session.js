@@ -1,7 +1,8 @@
 import Ember from "ember";
 
 export default Ember.Service.extend({
-  username: "",
+  username: null,
+  user_id: null,
   isAuthorized: Ember.computed("token", function() {
     return this.get("token") !== null && this.get("token").length > 0;
   }),
@@ -12,6 +13,8 @@ export default Ember.Service.extend({
     // For observing reasons
     this.get("isAuthorized");
     this.get("token");
+    this.get("username");
+    this.get("user_id");
   },
   login(username, password, success, fail) {
     let self = this;
@@ -24,6 +27,8 @@ export default Ember.Service.extend({
       },
       payload => {
         self.set("token", payload.token);
+        self.set("username", payload.username);
+        self.set("user_id", payload.id);
         success();
       }
     ).fail(() => {

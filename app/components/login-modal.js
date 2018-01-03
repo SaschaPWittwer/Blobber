@@ -7,6 +7,12 @@ export default Ember.Component.extend({
     session: Ember.inject.service('session'),
     router: Ember.inject.service(),
 
+    keyPress (key) {
+        if (key.keyCode === 13) {
+            this.send('doLogin');
+        }
+    },
+
     actions: {
         doLogin() {
             let user = this.get("username");
@@ -24,8 +30,12 @@ export default Ember.Component.extend({
             this.get("router").transitionTo("index");
         }
     },
-    didRender() {
+    didInsertElement() {
+        Ember.$("#loginModal").modal({
+            keyboard: false
+        });
         Ember.$("#loginModal").modal('show');
+        Ember.$("#user-name").focus();
     },
     willDestroyElement() {
         Ember.$("#loginModal").modal('hide');

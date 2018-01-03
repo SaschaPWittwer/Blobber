@@ -1,7 +1,7 @@
 <div class="card border-light mb-2">
     <div class="card-body text-left">
         {{#link-to "post.view" post.id tagName="h4" class="card-title blogTitle"}} {{post.title}} {{/link-to}}
-        <p class="card-text">
+        <p class="card-text blogContent">
             {{simple-mde-preview post.content}}
         </p>
         {{!-- Use flexbox for aligning ... --}}

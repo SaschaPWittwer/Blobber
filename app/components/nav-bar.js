@@ -18,6 +18,7 @@ export default Ember.Component.extend({
         },
         logout() {
             this.get("session").logout();
+            this.get("router").transitionTo("index");
         }
     }
 });

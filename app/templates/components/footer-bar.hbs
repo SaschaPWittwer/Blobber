@@ -1,5 +1,12 @@
 <div class="mt-5 navbar navbar-light fixed-bottom bg-light">
-  <span class="font-weight-light">
-    {{t "footerText"}}
-  </span>
+  <div class="d-flex justify-content-between w-100">
+    <span class="font-weight-light">
+      {{t "footerText"}}
+    </span>
+    {{#if session.isAuthorized}}
+    <span class="font-weight-normal">
+      Logged in as: {{session.username}}
+    </span>
+    {{/if}}
+  </div>
 </div>
