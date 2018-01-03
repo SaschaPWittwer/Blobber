@@ -1,8 +1,6 @@
 <div class="card border-light mb-2">
     <div class="card-body text-left">
-        {{#link-to "post.view" post tagName="h4" class="card-title blogTitle"}}
-            {{post.title}}
-        {{/link-to}}
+        {{#link-to "post.view" post.id tagName="h4" class="card-title blogTitle"}} {{post.title}} {{/link-to}}
         <p class="card-text">
             {{simple-mde-preview post.content}}
         </p>
@@ -18,24 +16,25 @@
         </footer>
     </div>
 </div>
-<div class="d-flex flex-column">
+<div class="d-flex flex-column align-items-center">
     {{#if isDetail}}
+    <div class="list-group w-50">
         {{#each post.comments as |comment|}}
-            <div class="d-flex">
-                <span>text</span>
+        <div class="list-group-item flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{comment.username}}</h5>
+                <small>{{comment.date}}</small>
             </div>
+            <p class="mb-1">{{comment.content}}</p>
+        </div>
         {{/each}}
-        <div class="d-flex flex-column">
-            <h7 class="p-2">Sascha Wittwer</h7>
-            <span class="small p-2">text asdfjoasdfn asldjfnas dfojlnasdkfj aksjdf kja sdfik asdkjf askjdf kjas dfkja sdkjf ajsdfjk asdlf 
-                asdkfj oasjd fkjas dkfj askdf kajs dfkj asdfj asdfasdf asdf asdf
-            </span> 
+    </div>
+    {{#if session.isAuthorized}}
+    <div class="input-group mt-1 w-50">
+        {{input value=comment type="text" class="form-control" placeholder="Add comment"}}
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" {{action "addComment" post}}>{{t 'add'}}</button>
         </div>
-         <div class="d-flex flex-column">
-            <h7 class="p-2">Yves Beutler</h7>
-            <span class="small p-2">text asdfjoasdfn asldjfnas dfojlnasdkfj aksjdf kja sdfik asdkjf askjdf kjas dfkja sdkjf ajsdfjk asdlf 
-                    asdkfj oasjd fkjas dkfj askdf kajs dfkj asdfj asdfasdf asdf asdf
-            </span>
-        </div>
-    {{/if}}
+    </div>
+    {{/if}} {{/if}}
 </div>

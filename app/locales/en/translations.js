@@ -24,5 +24,6 @@ export default {
   "passwordrepeat": "Repeat Passwort",
   "mailsDoNotMatch": "E-Mails do not match!",
   "passwordsDoNotMatch": "Passwords do not match!",
-  "createUser": "Create new user"
+  "createUser": "Create new user",
+  "add": "Add"
 };

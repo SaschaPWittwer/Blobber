@@ -24,5 +24,6 @@ export default {
   "passwordrepeat": "Passwort wiederholen",
   "mailsDoNotMatch": "E-Mails stimmen nicht überein!",
   "passwordsDoNotMatch": "Passwörter stimmen nicht überein!",
-  "createUser": "Neuen Benutzer erstellen"
+  "createUser": "Neuen Benutzer erstellen",
+  "add": "Hinzufügen"
 };
