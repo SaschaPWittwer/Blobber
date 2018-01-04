@@ -25,5 +25,6 @@ export default {
   "mailsDoNotMatch": "E-Mails do not match!",
   "passwordsDoNotMatch": "Passwords do not match!",
   "createUser": "Create new user",
-  "add": "Add"
+  "add": "Add",
+  "likes": "Likes"
 };

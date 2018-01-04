@@ -25,5 +25,6 @@ export default {
   "mailsDoNotMatch": "E-Mails stimmen nicht überein!",
   "passwordsDoNotMatch": "Passwörter stimmen nicht überein!",
   "createUser": "Neuen Benutzer erstellen",
-  "add": "Hinzufügen"
+  "add": "Hinzufügen",
+  "likes": "Likes"
 };

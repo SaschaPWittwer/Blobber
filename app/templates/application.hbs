@@ -6,7 +6,7 @@
         <div class="col-2 text-left d-none d-lg-block d-xl-block">
             <h3 class="font-weight-light">{{t "hotPosts"}}</h3>
             <ul class="nav flex-column">
-                {{#each model as |hotPost|}}
+                {{#each hotPosts as |hotPost|}}
                     <li class="nav-item">
                         {{#link-to "post.view" hotPost class="nav-link"}}
                             {{hotPost.title}} <span class="badge badge-light">{{hotPost.likes}}</span>

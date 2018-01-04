@@ -1,5 +1,6 @@
 import component from "@ember/component";
 import { inject as service } from "@ember/service";
+import $ from "jquery";
 
 export default component.extend({
     session: service(),
@@ -12,6 +13,17 @@ export default component.extend({
                 blogpost_id: blogPost.id
             });
             newComment.save();
+        },
+        addLike (blogPost) {
+            $.post("https://blobber.azurewebsites.net/api/like", {
+                like: {
+                    blogpost_id: blogPost.id
+                }
+            }, () => {
+                blogPost.reload();
+            }).fail(reasons => {
+                alert(reasons);
+            });
         }
     }
 });

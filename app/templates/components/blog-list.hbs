@@ -1,4 +1,4 @@
 <h3 class="font-weight-light text-left">{{t "recentPosts"}}</h3>
-{{#each posts as |post|}}
+{{#each sortedPosts as |post|}}
     {{blog-post post=post isDetail=false}}
 {{/each}}

@@ -51,5 +51,10 @@ module.exports = function(environment) {
     defaultLocale: "en"
   };
 
+  ENV.moment = {
+    includeLocales: ['de'],
+    outputFormat: 'LL'
+  }
+
   return ENV;
 };

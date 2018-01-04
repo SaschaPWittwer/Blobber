@@ -5,6 +5,7 @@ export default component.extend({
     session: service('session'),
     router: service(),
     i18n: service(),
+    moment: service(),
     searchFilter: '',
     actions: {
         search() {
@@ -16,6 +17,7 @@ export default component.extend({
         },
         setLanguage(language) {
             this.set('i18n.locale', language);
+            this.get('moment').setLocale(language);
         },
         logout() {
             this.get("session").logout();
