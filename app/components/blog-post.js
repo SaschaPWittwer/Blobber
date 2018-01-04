@@ -22,28 +22,26 @@ export default component.extend({
           Authorization: "Bearer " + this.get("session.token")
         },
         data: {
-          like: {
-            blogpost_id: blogPost.id
-          }
+          blogpost_id: blogPost.id
         },
         success: () => {
-            blogPost.reload();
+          blogPost.reload();
         }
       });
 
-    //   $.post(
-    //     "https://blobber.azurewebsites.net/api/like",
-    //     {
-    //       like: {
-    //         blogpost_id: blogPost.id
-    //       }
-    //     },
-    //     () => {
-    //       blogPost.reload();
-    //     }
-    //   ).fail(reasons => {
-    //     alert(reasons);
-    //   });
+      //   $.post(
+      //     "https://blobber.azurewebsites.net/api/like",
+      //     {
+      //       like: {
+      //         blogpost_id: blogPost.id
+      //       }
+      //     },
+      //     () => {
+      //       blogPost.reload();
+      //     }
+      //   ).fail(reasons => {
+      //     alert(reasons);
+      //   });
     }
   }
 });
