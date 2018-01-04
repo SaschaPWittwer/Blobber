@@ -4,6 +4,9 @@ import $ from "jquery";
 
 
 export default component.extend({
+    errorText: '',
+    hasError: false,
+
     router: service(),
     i18n: service(),
     
@@ -16,13 +19,15 @@ export default component.extend({
 
             if (mail !== mailRepeated)
             {
-                alert(this.get("i18n").t("mailsDoNotMatch"));
+                this.set("errorText", this.get("i18n").t("mailsDoNotMatch"));
+                this.set("hasError", true);
                 return;
             }
 
             if (password !== passwordRepeated)
             {
-                alert(this.get("i18n").t("passwordsDoNotMatch"));
+                this.set("errorText", this.get("i18n").t("passwordsDoNotMatch"));
+                this.set("hasError", true);
                 return;
             }
 

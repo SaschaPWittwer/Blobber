@@ -18,6 +18,11 @@
                         {{input value=password type="password" class="form-control" id="password-text"}}
                     </div>
                 </form>
+                {{#if hasError}}
+                    <div class="alert alert-danger" role="alert">
+                        {{errorText}}
+                    </div>
+                {{/if}}
             </div>
             <div class="modal-footer">
                 <div class="d-flex justify-content-between w-100">

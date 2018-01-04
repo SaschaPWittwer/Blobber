@@ -48,8 +48,8 @@ export default Service.extend({
 
         success();
       }
-    ).fail(() => {
-      fail();
+    ).fail(reason => {
+      fail(reason);
     });
   },
   logout() {

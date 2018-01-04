@@ -34,5 +34,10 @@
             {{input type="password" value=passwordRepeated class="form-control" id="passwordRepeat" required="true"}}
         </div>
     </div>
+    {{#if hasError}}
+    <div class="alert alert-danger" role="alert">
+        {{errorText}}
+    </div>
+    {{/if}}
     <button type="submit" class="btn btn-primary">{{t "register"}}</button>
 </form>

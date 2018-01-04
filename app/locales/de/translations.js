@@ -26,5 +26,6 @@ export default {
   "passwordsDoNotMatch": "Passwörter stimmen nicht überein!",
   "createUser": "Neuen Benutzer erstellen",
   "add": "Hinzufügen",
-  "likes": "Likes"
+  "likes": "Likes",
+  "loginError": "Etwas ist schief gelaufen, bitte versuche es nochmals"
 };

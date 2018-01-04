@@ -9,7 +9,12 @@
                 {{#each hotPosts as |hotPost|}}
                     <li class="nav-item">
                         {{#link-to "post.view" hotPost class="nav-link"}}
-                            {{hotPost.title}} <span class="badge badge-light">{{hotPost.likes}}</span>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                {{text-limit hotPost.title}}
+                            </div>
+                            <span class="badge badge-light">{{hotPost.likes}}</span>
+                        </div>
                         {{/link-to}}
                     </li>
                 {{/each}}

@@ -23,9 +23,7 @@ export default component.extend({
                 self.get("router").transitionTo("post.view", post);
             }
 
-            newPost.save().then(transitionToPost).fail(() => {
-                alert("fail");
-            });
+            newPost.save().then(transitionToPost);
         }
     }
 });

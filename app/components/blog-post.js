@@ -13,6 +13,8 @@ export default component.extend({
         blogpost_id: blogPost.id
       });
       newComment.save();
+
+      this.set("comment", "");
     },
     addLike(blogPost) {
       $.ajax({

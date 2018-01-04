@@ -1,13 +1,17 @@
 import { inject as service } from "@ember/service";
 import component from "@ember/component";
+import { computed } from "@ember/object";
 import $ from 'jquery';
 
 export default component.extend({
     username: '',
     password: '',
+    errorText: '',
+    hasError: false,
 
     session: service('session'),
     router: service(),
+    i18n: service(),
 
     keyPress (key) {
         if (key.keyCode === 13) {
@@ -20,11 +24,14 @@ export default component.extend({
             let user = this.get("username");
             let password = this.get("password");
             let self = this;
-            this.get("session").login(user, password, () =>{
+            this.get("session").login(user, password, () => {
+                self.set("errorText", "");
+                self.set("hasError", false);
                 $("#loginModal").modal('hide');
                 self.get("router").transitionTo("index");
-            }, () =>{
-                alert("fail");
+            }, () => {
+                self.set("errorText", this.get("i18n").t("loginError"));
+                self.set("hasError", true);
             });
         },
         close() {

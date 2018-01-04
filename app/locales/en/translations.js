@@ -26,5 +26,6 @@ export default {
   "passwordsDoNotMatch": "Passwords do not match!",
   "createUser": "Create new user",
   "add": "Add",
-  "likes": "Likes"
+  "likes": "Likes",
+  "loginError": "Something went wrong, please try again"
 };
