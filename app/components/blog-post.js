@@ -3,27 +3,47 @@ import { inject as service } from "@ember/service";
 import $ from "jquery";
 
 export default component.extend({
-    session: service(),
-    store: service(),
-    actions: {
-        addComment (blogPost) {
-            let newComment = this.get("store").createRecord("comment", {
-                blogPost: blogPost,
-                content: this.get("comment"),
-                blogpost_id: blogPost.id
-            });
-            newComment.save();
+  session: service(),
+  store: service(),
+  actions: {
+    addComment(blogPost) {
+      let newComment = this.get("store").createRecord("comment", {
+        blogPost: blogPost,
+        content: this.get("comment"),
+        blogpost_id: blogPost.id
+      });
+      newComment.save();
+    },
+    addLike(blogPost) {
+      $.ajax({
+        url: "https://blobber.azurewebsites.net/api/like",
+        type: "POST",
+        headers: {
+          Authorization: "Bearer " + this.get("session.token")
         },
-        addLike (blogPost) {
-            $.post("https://blobber.azurewebsites.net/api/like", {
-                like: {
-                    blogpost_id: blogPost.id
-                }
-            }, () => {
-                blogPost.reload();
-            }).fail(reasons => {
-                alert(reasons);
-            });
+        data: {
+          like: {
+            blogpost_id: blogPost.id
+          }
+        },
+        success: () => {
+            blogPost.reload();
         }
+      });
+
+    //   $.post(
+    //     "https://blobber.azurewebsites.net/api/like",
+    //     {
+    //       like: {
+    //         blogpost_id: blogPost.id
+    //       }
+    //     },
+    //     () => {
+    //       blogPost.reload();
+    //     }
+    //   ).fail(reasons => {
+    //     alert(reasons);
+    //   });
     }
+  }
 });
