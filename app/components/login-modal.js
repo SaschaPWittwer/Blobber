@@ -1,11 +1,13 @@
-import Ember from 'ember';
+import { inject as service } from "@ember/service";
+import component from "@ember/component";
+import $ from 'jquery';
 
-export default Ember.Component.extend({
+export default component.extend({
     username: '',
     password: '',
 
-    session: Ember.inject.service('session'),
-    router: Ember.inject.service(),
+    session: service('session'),
+    router: service(),
 
     keyPress (key) {
         if (key.keyCode === 13) {
@@ -19,25 +21,24 @@ export default Ember.Component.extend({
             let password = this.get("password");
             let self = this;
             this.get("session").login(user, password, () =>{
-                Ember.$("#loginModal").modal('hide');
+                $("#loginModal").modal('hide');
                 self.get("router").transitionTo("index");
             }, () =>{
                 alert("fail");
             });
         },
         close() {
-            // Ember.$("#loginModal").modal('hide');
             this.get("router").transitionTo("index");
         }
     },
     didInsertElement() {
-        Ember.$("#loginModal").modal({
+        $("#loginModal").modal({
             keyboard: false
         });
-        Ember.$("#loginModal").modal('show');
-        Ember.$("#user-name").focus();
+        $("#loginModal").modal('show');
+        $("#user-name").focus();
     },
     willDestroyElement() {
-        Ember.$("#loginModal").modal('hide');
+        $("#loginModal").modal('hide');
     }
 });

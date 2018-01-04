@@ -1,9 +1,12 @@
-import Ember from 'ember';
+import component from "@ember/component";
+import { inject as service } from "@ember/service";
+import $ from "jquery";
 
-export default Ember.Component.extend({
-    router: Ember.inject.service(),
-    i18n: Ember.inject.service(),
 
+export default component.extend({
+    router: service(),
+    i18n: service(),
+    
     actions: {
         register () {
             let mail = this.get("mail");
@@ -32,7 +35,7 @@ export default Ember.Component.extend({
             };
             
             let self = this;
-            Ember.$.post("https://blobber.azurewebsites.net/api/createuser", user, () => {
+            $.post("https://blobber.azurewebsites.net/api/createuser", user, () => {
                 self.get("router").transitionTo("login");
             }).fail(reason => {
                 alert(reason);

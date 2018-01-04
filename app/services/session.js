@@ -1,9 +1,11 @@
-import Ember from "ember";
+import Service from '@ember/service';
+import { computed } from '@ember/object';
+import $ from 'jquery';
 
-export default Ember.Service.extend({
+export default Service.extend({
   username: null,
   user_id: null,
-  isAuthorized: Ember.computed("token", function() {
+  isAuthorized: computed("token", function() {
     return this.get("token") !== null && this.get("token").length > 0;
   }),
   token: null,
@@ -19,7 +21,7 @@ export default Ember.Service.extend({
   login(username, password, success, fail) {
     let self = this;
 
-    Ember.$.post(
+    $.post(
       "https://blobber.azurewebsites.net/api/token",
       {
         user: username,

@@ -1,11 +1,12 @@
 import DS from 'ember-data';
-import Ember from 'ember';
+import { inject as service } from "@ember/service";
+import { computed } from '@ember/object';
 
 export default DS.RESTAdapter.extend({
     host: "https://blobber.azurewebsites.net/api/",
 
-    session: Ember.inject.service('session'),
-    headers: Ember.computed('session.isAuthorized', function() {
+    session: service('session'),
+    headers: computed('session.isAuthorized', function() {
       return {
         'Authorization': 'Bearer ' + this.get('session.token')
       };

@@ -1,10 +1,11 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
     queryParams: ["filter"],
     filter: null,
 
-    filteredPosts: Ember.computed('filter', 'model', function(){
+    filteredPosts: computed('filter', 'model', function() {
         let filter = this.get("filter").toLowerCase();
         let posts = this.get("model");
 

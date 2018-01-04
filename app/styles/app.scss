@@ -20,6 +20,18 @@
 }
 
 .blogContent img {
-    max-width: 100%;
-    height: auto;
+    @extend .img-fluid;
 }
+
+@include media-breakpoint-down(md) {
+    .commentGroup {
+        width: 100%;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .commentGroup {
+        width: 50%;
+    }
+}
+@import "ember-cli-bootstrap-4/bootstrap";

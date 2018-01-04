@@ -1,9 +1,10 @@
-import Ember from 'ember';
+import component from "@ember/component";
+import { inject as service } from "@ember/service";
 
-export default Ember.Component.extend({
-    session: Ember.inject.service('session'),
-    router: Ember.inject.service(),
-    i18n: Ember.inject.service(),
+export default component.extend({
+    session: service('session'),
+    router: service(),
+    i18n: service(),
     searchFilter: '',
     actions: {
         search() {
