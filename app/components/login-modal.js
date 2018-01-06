@@ -1,6 +1,5 @@
 import { inject as service } from "@ember/service";
 import component from "@ember/component";
-import { computed } from "@ember/object";
 import $ from 'jquery';
 
 export default component.extend({

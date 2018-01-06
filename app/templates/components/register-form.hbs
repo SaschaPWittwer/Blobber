@@ -13,11 +13,11 @@
     <div class="form-row">
         <div class="form-group col">
             <label for="mail">{{t "mail"}}</label>
-            {{input type="mail" value=mail class="form-control" id="mail" required="true"}}
+            {{input type="email" value=mail class="form-control" id="mail" required="true"}}
         </div>
         <div class="form-group col">
             <label for="mailrepeat">{{t "mailrepeat"}}</label>
-            {{input type="mail" value=mailRepeated class="form-control" id="mailrepeat" required="true"}}
+            {{input type="email" value=mailRepeated class="form-control" id="mailrepeat" required="true"}}
         </div>
     </div>
     <div class="form-group">
@@ -28,6 +28,10 @@
         <div class="form-group col">
             <label for="password">{{t "password"}}</label>
             {{input type="password" value=password class="form-control" id="password" required="true"}}
+            <div id="passwordStrength" class="progress w-100">
+                <div id="pwStrength" class="progress-bar" role="progressbar"></div>
+                {{strength}}
+            </div>
         </div>
         <div class="form-group col">
             <label for="passwordRepeat">{{t "passwordrepeat"}}</label>

@@ -27,5 +27,9 @@ export default {
   "createUser": "Neuen Benutzer erstellen",
   "add": "Hinzufügen",
   "likes": "Likes",
-  "loginError": "Etwas ist schief gelaufen, bitte versuche es nochmals"
+  "loginError": "Etwas ist schief gelaufen, bitte versuche es nochmals",
+  "weak": "Schwach",
+  "ok": "Ok",
+  "good": "Gut",
+  "strong": "Stark"
 };

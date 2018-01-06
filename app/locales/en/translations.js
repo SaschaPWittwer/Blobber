@@ -27,5 +27,9 @@ export default {
   "createUser": "Create new user",
   "add": "Add",
   "likes": "Likes",
-  "loginError": "Something went wrong, please try again"
+  "loginError": "Something went wrong, please try again",
+  "weak": "Weak",
+  "ok": "Ok",
+  "good": "Good",
+  "strong": "Strong"
 };

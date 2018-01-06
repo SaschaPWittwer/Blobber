@@ -11,8 +11,11 @@ export default component.extend({
         search() {
             let sFilter = this.get("searchFilter");
 
+            let router = this.get("router");
             if (new String(sFilter).length > 0){
-                this.get("router").transitionTo("/posts?filter=" + sFilter);
+                router.transitionTo("/posts?filter=" + sFilter);
+            } else {
+                router.transitionTo("/posts");
             }
         },
         setLanguage(language) {
