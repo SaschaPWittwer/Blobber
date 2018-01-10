@@ -16,6 +16,9 @@ export default component.extend({
 
       this.set("comment", "");
     },
+    deleteComment(comment) {
+      comment.destroyRecord();
+    },
     addLike(blogPost) {
       $.ajax({
         url: "https://blobber.azurewebsites.net/api/like",
@@ -30,20 +33,6 @@ export default component.extend({
           blogPost.reload();
         }
       });
-
-      //   $.post(
-      //     "https://blobber.azurewebsites.net/api/like",
-      //     {
-      //       like: {
-      //         blogpost_id: blogPost.id
-      //       }
-      //     },
-      //     () => {
-      //       blogPost.reload();
-      //     }
-      //   ).fail(reasons => {
-      //     alert(reasons);
-      //   });
     }
   }
 });

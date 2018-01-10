@@ -39,7 +39,7 @@
                         </div>
                     {{else}}
                         <div>
-                            <span class="badge badge-success likeable" {{action "addLike" post}}>
+                            <span class="badge badge-success clickable" {{action "addLike" post}}>
                                 {{material-icon "thumb_up"}}
                             </span>
                         </div>
@@ -56,9 +56,17 @@
         <div class="list-group-item flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{comment.username}}</h5>
-                <small>{{moment-format comment.date}}</small>
+                <div>
+                    <small>{{moment-format comment.date}}</small>
+                    
+                </div>
             </div>
             <p class="mb-1">{{comment.content}}</p>
+            {{#if comment.currentUserIsOwner}}
+                <div class="clickable float-right text-danger" {{action "deleteComment" comment}}>
+                    {{material-icon "delete"}}
+                </div>
+            {{/if}}
         </div>
         {{/each}}
     </div>
