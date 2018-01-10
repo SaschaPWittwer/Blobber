@@ -8,4 +8,7 @@
         {{simple-mde value=content change=(action (mut content))}}
     </div>
     <button type="submit" class="btn btn-primary">{{t "save"}}</button>
+    {{#unless isNew}}
+        <button type="button" class="btn btn-danger" {{action "delete"}}>{{t "delete"}}</button>
+    {{/unless}}
 </form>

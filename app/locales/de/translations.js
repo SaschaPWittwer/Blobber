@@ -31,5 +31,6 @@ export default {
   "weak": "Schwach",
   "ok": "Ok",
   "good": "Gut",
-  "strong": "Stark"
+  "strong": "Stark",
+  "delete": "Löschen"
 };

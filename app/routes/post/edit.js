@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route';
+import { inject as service } from "@ember/service";
 
 export default Route.extend({
     session: service(),
@@ -7,4 +8,7 @@ export default Route.extend({
             transition.abort();
         }
     },
+    model(params) {
+        return this.get("store").findRecord("blogpost", params.id);
+    }
 });

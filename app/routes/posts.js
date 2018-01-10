@@ -8,7 +8,7 @@ export default Route.extend({
         }
     },
 
-    model(params) {
+    model() {
         return this.get("store").findAll("blogpost");
     }
 });

@@ -4,11 +4,23 @@
             <h4 class="card-title">
                 {{post.title}}
             </h4>
-            {{#unless isDetail}} {{#link-to "post.view" post.id class="card-title blogTitle"}}
-            <span>
-                {{material-icon "open_in_new"}}
-            </span>
-            {{/link-to}} {{/unless}}
+            <div>
+                {{#if post.currentUserIsOwner}}
+                {{#link-to "post.edit" post.id}}
+                {{!-- <div class="d-inline"> --}}
+                    {{material-icon "mode_edit"}}
+                {{!-- </div> --}}
+                {{/link-to}}
+                {{/if}}
+                
+                {{#unless isDetail}}
+                {{#link-to "post.view" post.id}}
+                {{!-- <div class="d-inline"> --}}
+                    {{material-icon "open_in_new"}}
+                {{!-- </div> --}}
+                {{/link-to}} 
+                {{/unless}}
+            </div>
         </div>
         <p class="card-text blogContent">
             {{simple-mde-preview post.content}}
@@ -19,11 +31,19 @@
                     {{moment-format post.date}} / {{post.likes}} {{t "likes"}}
                 </small>
                 {{#if session.isAuthorized}}
-                    <div>
-                        <span class="badge badge-success likeable" {{action "addLike" post}}>
-                            {{material-icon "thumb_up"}}
-                        </span>
-                    </div>
+                    {{#if post.alreadyLiked}}
+                        <div>
+                            <span class="badge badge-secondary">
+                                {{material-icon "thumb_up"}}
+                            </span>
+                        </div>
+                    {{else}}
+                        <div>
+                            <span class="badge badge-success likeable" {{action "addLike" post}}>
+                                {{material-icon "thumb_up"}}
+                            </span>
+                        </div>
+                    {{/if}}
                 {{/if}}
             </div>
         </footer>
