@@ -10,11 +10,6 @@
     margin-bottom: 1rem;
 }
 
-.newPost {
-    margin-left: 4rem;
-    margin-right: 4rem;
-}
-
 .clickable{
     cursor: pointer;
 }
@@ -27,11 +22,20 @@
     .commentGroup {
         width: 100%;
     }
+
+    .newPost {
+        // Nothing
+    }
 }
 
 @include media-breakpoint-up(lg) {
     .commentGroup {
         width: 50%;
+    }
+
+    .newPost {
+        margin-left: 4rem;
+        margin-right: 4rem;
     }
 }
 @import "ember-cli-bootstrap-4/bootstrap";

@@ -1,5 +1,6 @@
 import Service from '@ember/service';
 import { computed } from '@ember/object';
+import { inject as service } from "@ember/service";
 import { storageFor } from 'ember-local-storage';
 import $ from 'jquery';
 
@@ -12,6 +13,8 @@ export default Service.extend({
   }),
   token: null,
   sessionInfo: storageFor('session-info'),
+  i18n: service(),
+  moment: service(),
 
   init() {
     this._super(...arguments);
@@ -19,6 +22,11 @@ export default Service.extend({
     this.set("token", this.get("sessionInfo.token"));
     this.set("username", this.get("sessionInfo.username"));
     this.set("user_id", this.get("sessionInfo.user_id"));
+    let lang = this.get("sessionInfo.lang");
+    if (lang) {
+      this.set('i18n.locale', lang);
+      this.get('moment').setLocale(lang);
+    }
 
     // For observing reasons
     this.get("isAuthorized");
@@ -54,6 +62,8 @@ export default Service.extend({
   },
   logout() {
     this.set("token", null);
-    this.get("sessionInfo").clear();
+    this.set("sessionInfo.token", null);
+    this.set("sessionInfo.username", null);
+    this.set("sessionInfo.user_id", null);
   }
 });
