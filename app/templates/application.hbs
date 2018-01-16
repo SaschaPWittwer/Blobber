@@ -8,7 +8,7 @@
             <ul class="nav flex-column">
                 {{#each hotPosts as |hotPost|}}
                     <li class="nav-item">
-                        {{#link-to "post.view" hotPost class="nav-link"}}
+                        {{#link-to "post.view" hotPost.id class="nav-link"}}
                         <div class="d-flex justify-content-between">
                             <div>
                                 {{text-limit hotPost.title}}

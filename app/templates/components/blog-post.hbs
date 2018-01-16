@@ -7,17 +7,13 @@
             <div>
                 {{#if post.currentUserIsOwner}}
                 {{#link-to "post.edit" post.id}}
-                {{!-- <div class="d-inline"> --}}
                     {{material-icon "mode_edit"}}
-                {{!-- </div> --}}
                 {{/link-to}}
                 {{/if}}
                 
                 {{#unless isDetail}}
                 {{#link-to "post.view" post.id}}
-                {{!-- <div class="d-inline"> --}}
                     {{material-icon "open_in_new"}}
-                {{!-- </div> --}}
                 {{/link-to}} 
                 {{/unless}}
             </div>

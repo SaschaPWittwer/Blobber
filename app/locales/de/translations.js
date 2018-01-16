@@ -32,5 +32,6 @@ export default {
   "ok": "Ok",
   "good": "Gut",
   "strong": "Stark",
-  "delete": "Löschen"
+  "delete": "Löschen",
+  "downloadSource": "Sourcecode herunterladen"
 };

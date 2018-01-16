@@ -32,5 +32,6 @@ export default {
   "ok": "Ok",
   "good": "Good",
   "strong": "Strong",
-  "delete": "Delete"
+  "delete": "Delete",
+  "downloadSource": "Download Source"
 };
