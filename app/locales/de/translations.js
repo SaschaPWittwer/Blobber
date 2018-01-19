@@ -33,5 +33,6 @@ export default {
   "good": "Gut",
   "strong": "Stark",
   "delete": "Löschen",
-  "downloadSource": "Sourcecode herunterladen"
+  "downloadSource": "Sourcecode herunterladen",
+  "loggedInAs": "Eingeloggt als:"
 };

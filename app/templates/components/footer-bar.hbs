@@ -17,7 +17,7 @@
     </div>
     {{#if session.isAuthorized}}
     <span class="font-weight-normal"> 
-      Logged in as: {{session.username}}
+      {{t 'loggedInAs'}} {{session.username}}
     </span>
     {{/if}}
   </div>

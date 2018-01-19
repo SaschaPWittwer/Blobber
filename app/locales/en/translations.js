@@ -33,5 +33,6 @@ export default {
   "good": "Good",
   "strong": "Strong",
   "delete": "Delete",
-  "downloadSource": "Download Source"
+  "downloadSource": "Download Source",
+  "loggedInAs": "Logged in as:"
 };
