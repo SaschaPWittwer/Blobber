@@ -1,8 +1,8 @@
 import { helper } from '@ember/component/helper';
 
 export function textLimit([text]) {
-  if (text.length > 25){
-    return text.substring(0, 20) + " ...";
+  if (text.length > 20){
+    return text.substring(0, 17) + " ...";
   } else {
     return text;
   }
