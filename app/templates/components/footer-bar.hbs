@@ -1,10 +1,17 @@
 <div class="mt-5 navbar navbar-light fixed-bottom bg-light">
   <div class="d-flex justify-content-between w-100">
+    <div>
     <span class="font-weight-light">
       {{t "footerText"}}
     </span>
+    <span class="font-weight-light ml-2">
+      <a href="https://blobber.azurewebsites.net/source/code.zip" target="_blank">
+        Source Code
+      </a>
+    </span>
+    </div>
     {{#if session.isAuthorized}}
-    <span class="font-weight-normal">
+    <span class="font-weight-normal"> 
       Logged in as: {{session.username}}
     </span>
     {{/if}}
